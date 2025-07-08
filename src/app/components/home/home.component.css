@@ -1,0 +1,69 @@
+/* Ejemplo para asegurar que el routerLink del banner se vea bien */
+.btn-explore {
+  /* Tailwind classes will handle most of this, but if you need to override */
+  text-decoration: none; /* Ensure no underline */
+}
+
+/* Custom styles for line-clamp if Tailwind's line-clamp plugin is not available via CDN */
+/* (The CDN version of Tailwind might not include all plugins by default) */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Fallback for object-fit if older browser support is needed */
+.object-cover {
+  object-fit: cover;
+}
+.object-center {
+  object-position: center;
+}
+
+/* Estilos específicos para el carrusel de PrimeNG (pueden necesitar ajustes finos) */
+/* Sobrescribir estilos por defecto de PrimeNG con Tailwind o CSS personalizado */
+
+/* Ajusta el padding de los botones de navegación del carrusel si es necesario */
+.p-carousel .p-carousel-prev,
+.p-carousel .p-carousel-next {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para los botones */
+  border-radius: 50%; /* Botones redondos */
+  width: 3rem; /* Tamaño de los botones */
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Color de los iconos de flecha */
+  transition: background-color 0.3s;
+}
+
+.p-carousel .p-carousel-prev:hover,
+.p-carousel .p-carousel-next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Ajusta el tamaño de los iconos de flecha */
+.p-carousel .p-carousel-prev .pi,
+.p-carousel .p-carousel-next .pi {
+  font-size: 1.5rem;
+}
+
+/* Ajusta los indicadores de página (puntos) */
+.p-carousel .p-carousel-indicators .p-carousel-indicator button {
+  background-color: rgba(0, 0, 0, 0.3); /* Color de los puntos inactivos */
+  width: 0.75rem;
+  height: 0.75rem;
+  transition: background-color 0.3s;
+}
+
+.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+  background-color: #007bff; /* Color del punto activo */
+}
+
+/* Asegura que las tarjetas dentro del carrusel tengan un ancho consistente */
+/* El mx-2 en el HTML ya ayuda, pero puedes añadir más control aquí */
+.product-card-carousel {
+  /* Puedes añadir un min-width si las tarjetas no se ven bien en ciertos breakpoints */
+  /* min-width: 280px; */
+}

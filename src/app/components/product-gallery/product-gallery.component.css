@@ -1,0 +1,48 @@
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Fallback for object-fit if older browser support is needed */
+.object-cover {
+  object-fit: cover;
+}
+.object-center {
+  object-position: center;
+}
+
+/* Ensure PrimeNG input and select elements fill their containers */
+.p-inputtext {
+  width: 100%;
+}
+
+.p-dropdown {
+  width: 100%;
+}
+
+/* Styles for the category tag */
+.p-tag {
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px; /* Fully rounded */
+}
+
+/* General product card styling for consistent height */
+.product-card {
+  height: auto; /* Allow height to adjust based on content */
+}
+
+.product-card .flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card .flex-grow {
+  flex-grow: 1;
+}
+
+.product-card .mt-auto {
+  margin-top: auto;
+}

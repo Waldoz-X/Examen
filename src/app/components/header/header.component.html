@@ -1,0 +1,52 @@
+<header class="prime-physique-header">
+  <div class="top-bar">
+    <div class="top-bar-content">
+      <span class="top-bar-text">{{ topBarText }}</span>
+      <div class="top-bar-right">
+        <span class="contact-info">¿PREGUNTAS? (818) 206-8764</span>
+        <p-dropdown
+          [options]="currencies"
+          [(ngModel)]="selectedCurrency"
+          optionLabel="name"
+          [showClear]="false"
+          styleClass="currency-dropdown"
+        >
+          <ng-template pTemplate="selectedItem">
+            <div *ngIf="selectedCurrency" class="currency-item-selected">
+              <img [src]="selectedCurrency.icon" class="currency-flag" />
+              <div>{{ selectedCurrency.name }}</div>
+            </div>
+          </ng-template>
+          <ng-template pTemplate="item" let-currency>
+            <div class="currency-item">
+              <img [src]="currency.icon" class="currency-flag" />
+              <div>{{ currency.name }}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-navbar">
+    <div class="navbar-left">
+    </div>
+    <div class="navbar-center">
+      <a routerLink="/" class="logo-link">
+        <img src="https://www.youngla.com/cdn/shop/files/spaced_logo_Black_32dec808-d736-4b71-87a2-b92272e92b0a.png?v=1742116144&width=520" alt="Prime Physique Logo" class="logo">
+      </a>
+    </div>
+    <div class="navbar-right">
+      <p-button icon="pi pi-user" styleClass="p-button-text p-button-plain" (click)="goToAccount()" title="Mi Cuenta"></p-button>
+      <p-button icon="pi pi-search" styleClass="p-button-text p-button-plain" title="Buscar"></p-button>
+      <p-button icon="pi pi-shopping-cart" styleClass="p-button-text p-button-plain" (click)="goToCart()" title="Carrito (0)"></p-button>
+    </div>
+  </div>
+
+  <nav class="main-menu">
+    <p-menubar [model]="mainMenuItems">
+      <ng-template pTemplate="start">
+      </ng-template>
+    </p-menubar>
+  </nav>
+</header>

@@ -1,0 +1,182 @@
+/* Top Bar */
+.top-bar {
+  background-color: #222; /* Fondo oscuro */
+  color: #eee; /* Texto claro */
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.top-bar-content {
+  display: flex;
+  justify-content: center; /* Centra el texto por defecto */
+  align-items: center;
+  max-width: 1200px; /* Ancho máximo, similar a un contenedor */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Empuja los elementos a la derecha */
+}
+
+.contact-info {
+  margin-right: 1.5rem;
+  color: #ccc;
+}
+
+.currency-dropdown .p-dropdown {
+  background-color: transparent !important;
+  border: none !important;
+  color: #eee !important;
+  font-size: 0.8rem;
+}
+
+.currency-dropdown .p-dropdown .p-dropdown-label {
+  color: #eee !important;
+  padding: 0.25rem 0.5rem;
+}
+
+.currency-dropdown .p-dropdown-trigger {
+  color: #eee !important;
+}
+
+.currency-flag {
+  width: 20px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.currency-item, .currency-item-selected {
+  display: flex;
+  align-items: center;
+}
+
+
+/* Main Navbar (Logo, Icons) */
+.main-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.navbar-left, .navbar-right {
+  flex: 1; /* Permite que estos se expandan */
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left {
+  /* Aquí podrías añadir un botón de menú hamburguesa para móviles si lo deseas */
+}
+
+.navbar-center {
+  flex: 1; /* Asegura que el centro ocupe el espacio */
+  text-align: center;
+}
+
+.logo-link {
+  display: inline-block; /* Para que el margin auto funcione bien en el logo */
+}
+
+.logo {
+  max-height: 45px; /* Ajusta el tamaño de tu logo */
+  width: auto;
+  display: block; /* Elimina espacio extra debajo de la imagen */
+  margin: 0 auto; /* Centra el logo */
+}
+
+.navbar-right {
+  justify-content: flex-end; /* Alinea los iconos a la derecha */
+}
+
+.navbar-right .p-button {
+  color: #333; /* Color de los iconos */
+  margin-left: 1rem; /* Espacio entre iconos */
+  font-size: 1.25rem; /* Tamaño de los iconos */
+}
+
+/* Main Navigation Menu */
+.main-menu {
+  background-color: #f8f8f8; /* Un fondo ligeramente diferente para la barra de menú */
+  border-bottom: 1px solid #ddd;
+}
+
+.main-menu .p-menubar {
+  background-color: transparent !important; /* Hazlo transparente para usar el color del contenedor */
+  border: none !important;
+  padding: 0 2rem; /* Alinea con el padding del main-navbar */
+  justify-content: center; /* Centra los items del menú */
+}
+
+/* Ajustes de los items del menú de PrimeNG */
+.main-menu .p-menuitem-link {
+  font-weight: 600; /* Más negrita para los enlaces */
+  font-size: 1rem;
+  text-transform: uppercase; /* MAYÚSCULAS como en YoungLA */
+  color: #333 !important;
+  padding: 1rem 1.25rem !important; /* Espacio en los botones */
+}
+
+.main-menu .p-menuitem-link:hover {
+  background-color: #e9ecef !important;
+  color: #007bff !important; /* Color al pasar el ratón */
+}
+
+.main-menu .p-menuitem-active > .p-menuitem-link {
+  background-color: #e9ecef !important;
+  color: #007bff !important;
+}
+
+/* Submenús */
+.main-menu .p-submenu-list {
+  background-color: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-menu .p-submenu-list .p-menuitem-link {
+  font-weight: normal;
+  text-transform: none;
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem !important;
+}
+
+/* Responsive considerations (simple example) */
+@media (max-width: 768px) {
+  .top-bar-content {
+    flex-direction: column;
+  }
+  .top-bar-right {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+  .contact-info {
+    margin-right: 0.5rem;
+  }
+  .main-navbar {
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    justify-content: center;
+    padding: 1rem;
+  }
+  .navbar-left, .navbar-right {
+    flex-basis: 100%; /* Ocupan todo el ancho en móviles */
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  .navbar-center {
+    order: -1; /* Mueve el logo arriba */
+    flex-basis: 100%;
+  }
+  .main-menu .p-menubar {
+    padding: 0 1rem;
+  }
+  /* Esto requeriría un componente de menú hamburguesa para PrimeNG en móviles */
+  /* Por simplicidad, el menubar de PrimeNG se apila horizontalmente en pantallas pequeñas por defecto */
+}

@@ -1,0 +1,216 @@
+.prime-physique-footer {
+  background-color: #f8f8f8; /* Un gris claro, similar al de YoungLA */
+  color: #333;
+  padding: 3rem 2rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #eee; /* Un borde superior sutil */
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+  gap: 2rem; /* Espacio entre columnas */
+  max-width: 1200px;
+  margin: 0 auto 3rem auto; /* Espacio debajo del grid antes del contenido inferior */
+}
+
+.footer-column h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  color: #222;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.7rem;
+}
+
+.footer-column ul li a {
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #007bff; /* Color de hover similar al header */
+}
+
+/* Newsletter Column Specifics */
+.newsletter-column p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.newsletter-column .p-field {
+  display: flex; /* Para alinear el input y el botón */
+  margin-bottom: 1.5rem;
+}
+
+.newsletter-input {
+  flex: 1; /* Ocupa el espacio restante */
+  border-radius: 0 !important; /* Quita el redondeo de PrimeNG */
+  border: 1px solid #ccc !important;
+  padding: 0.75rem 1rem !important;
+  font-size: 0.9rem;
+}
+
+.subscribe-button {
+  border-radius: 0 !important;
+  background-color: #333 !important;
+  color: #fff !important;
+  padding: 0.75rem 1.5rem !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid #333 !important;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.subscribe-button:hover {
+  background-color: #007bff !important;
+  border-color: #007bff !important;
+}
+
+.reviews-section {
+  text-align: center; /* Centrar los elementos dentro de la sección de reviews */
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 1.5rem;
+  margin-top: 2rem; /* Espacio arriba */
+}
+
+.reviews-section .stars i {
+  color: #f7b731; /* Color dorado para las estrellas */
+  font-size: 1.2rem;
+  margin: 0 2px;
+}
+
+.reviews-section p {
+  margin: 0.5rem 0 0.2rem 0;
+  font-weight: 600;
+  color: #222;
+}
+
+.reviews-section .powered-by {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+
+/* Footer Bottom Section */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid #eee; /* Separador */
+  text-align: center;
+}
+
+.footer-info {
+  margin-bottom: 2rem;
+  text-align: justify; /* Justifica el texto para que se vea más limpio */
+  line-height: 1.6;
+}
+
+.footer-info h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: #222;
+  text-align: center; /* Centra el título "SOBRE LA TIENDA" */
+}
+
+.footer-info a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; /* Espacio entre los iconos */
+}
+
+.social-icons .p-button {
+  font-size: 1.8rem; /* Tamaño grande para los iconos sociales */
+  color: #555 !important;
+  transition: color 0.2s ease;
+}
+
+.social-icons .p-button:hover {
+  color: #000 !important; /* Más oscuro al pasar el ratón */
+}
+
+.footer-credit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+  gap: 1rem; /* Espacio entre los elementos */
+}
+
+.currency-selector-bottom .p-dropdown {
+  background-color: transparent !important;
+  border: none !important;
+  color: #333 !important;
+}
+
+.currency-selector-bottom .p-dropdown .p-dropdown-label {
+  color: #333 !important;
+  padding: 0.25rem 0.5rem;
+}
+
+.currency-selector-bottom .p-dropdown-trigger {
+  color: #333 !important;
+}
+
+.payment-icons img {
+  height: 25px; /* Tamaño de los iconos de pago */
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Responsive Adjustments for Footer */
+@media (max-width: 992px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+  }
+  .newsletter-column {
+    grid-column: span 2; /* Ocupa 2 columnas para el newsletter en tablets */
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-grid {
+    grid-template-columns: 1fr; /* 1 columna en móviles */
+  }
+  .newsletter-column {
+    grid-column: span 1;
+  }
+  .footer-credit {
+    flex-direction: column; /* Apila los elementos en el footer inferior */
+  }
+  .currency-selector-bottom,
+  .payment-icons {
+    width: 100%;
+    text-align: center;
+    justify-content: center; /* Centrar iconos de pago */
+  }
+  .payment-icons img {
+    margin: 0 0.5rem; /* Ajustar margen para centrar */
+  }
+}

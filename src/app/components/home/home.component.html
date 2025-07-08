@@ -1,0 +1,119 @@
+<!-- src/app/components/home/home.component.html -->
+<div class="home-container">
+  <!-- Hero Banner Section with Video Background -->
+  <section class="relative h-screen flex items-center justify-center text-white p-4 overflow-hidden">
+    <!-- Video de fondo -->
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+      <source src="[https://assets.gymshark.com/wl6q2in9o7k3/3CecyED4IEEGmUyqRdYSNA/302a50a6a3202ed2c16737bb356a51e2/desktop.mp4](https://assets.gymshark.com/wl6q2in9o7k3/3CecyED4IEEGmUyqRdYSNA/302a50a6a3202ed2c16737bb356a51e2/desktop.mp4)" type="video/mp4">
+      Tu navegador no soporta el tag de video.
+    </video>
+
+    <!-- Overlay para oscurecer el video y mejorar la legibilidad del texto -->
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+
+    <div class="relative z-10 text-center max-w-3xl space-y-6">
+      <h1 class="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight drop-shadow-lg">
+        Bienvenido a <span class="text-blue-400">PRIME PHYSIQUE</span>
+      </h1>
+      <p class="text-xl md:text-2xl font-light leading-relaxed drop-shadow-md">
+        Tu destino definitivo para el mejor equipo y suplementos de fitness.
+        Alcanza tu máximo potencial con nuestra selección premium.
+      </p>
+      <a routerLink="/productos"
+         class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+        Explorar Productos
+      </a>
+    </div>
+  </section>
+
+  <!-- New Carousel Section for Banners/Promotions (using local images) -->
+  <section class="py-16 bg-gray-900 text-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-12">Novedades y Promociones</h2>
+
+      <p-carousel [value]="carouselBanners"
+                  [numVisible]="1"
+                  [numScroll]="1"
+                  [responsiveOptions]="responsiveOptionsBanners"
+                  [circular]="true"
+                  [autoplayInterval]="8000"
+                  [showIndicators]="true"
+                  class="banner-carousel"
+      >
+        <ng-template let-banner pTemplate="item">
+          <div class="relative w-full h-96 md:h-[500px] lg:h-[600px] overflow-hidden rounded-xl shadow-2xl">
+            <img [src]="banner.src" [alt]="banner.alt" class="w-full h-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+            <div class="absolute bottom-0 left-0 p-8 text-white z-10">
+              <h3 class="text-3xl md:text-4xl font-bold mb-2">{{ banner.title }}</h3>
+              <p class="text-lg md:text-xl font-light mb-4">{{ banner.subtitle }}</p>
+              <a [routerLink]="banner.link"
+                 class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out">
+                Ver Más
+              </a>
+            </div>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </section>
+
+  <!-- Featured Products Section (from API, now separate from image carousel) -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Productos Destacados</h2>
+
+      <div *ngIf="isLoading" class="text-center text-gray-600 text-lg py-10">
+        Cargando productos destacados...
+        <div class="mt-4 animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto"></div>
+      </div>
+
+      <div *ngIf="errorMessage" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-center mb-8" role="alert">
+        <strong class="font-bold">¡Error!</strong>
+        <span class="block sm:inline"> {{ errorMessage }}</span>
+      </div>
+
+      <!-- PrimeNG Carousel for Featured Products (from API) -->
+      <p-carousel *ngIf="!isLoading && productosDestacados.length > 0"
+                  [value]="productosDestacados"
+                  [numVisible]="3"
+                  [numScroll]="1"
+                  [responsiveOptions]="responsiveOptionsProducts"
+                  [circular]="true"
+                  [autoplayInterval]="5000"
+                  [showIndicators]="true"
+                  class="product-carousel"
+      >
+        <ng-template let-producto pTemplate="item">
+          <!-- Contenido de cada tarjeta de producto dentro del carrusel -->
+          <div class="product-card-carousel bg-white rounded-xl shadow-lg overflow-hidden
+                      transform transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl
+                      mx-2 flex flex-col h-full"> <!-- Added flex and h-full -->
+            <div class="relative overflow-hidden w-full h-64 rounded-t-xl">
+              <img [src]="producto.imagenUrl" [alt]="producto.nombre"
+                   class="w-full h-full object-cover object-center"
+                   onerror="this.onerror=null;this.src='[https://placehold.co/600x400/CCCCCC/333333?text=Imagen+no+disponible](https://placehold.co/600x400/CCCCCC/333333?text=Imagen+no+disponible)';" />
+              <!-- Optional: "AGOTADO" tag -->
+              <!-- <p-tag *ngIf="producto.agotado" value="AGOTADO" severity="danger" class="absolute top-2 left-2"></p-tag> -->
+            </div>
+            <div class="p-6 flex flex-col flex-grow"> <!-- Added flex flex-col flex-grow -->
+              <h3 class="text-xl font-semibold text-gray-900 mb-2 truncate">{{ producto.nombre }}</h3>
+              <p class="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">{{ producto.descripcion }}</p> <!-- Added flex-grow -->
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-2xl font-bold text-blue-600">${{ producto.precio | number:'1.2-2' }}</span>
+                <!-- Optional: Category Tag -->
+                <p-tag [value]="producto.categoriaNombre" severity="info" class="text-xs"></p-tag>
+              </div>
+              <button class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-4 rounded-lg transition duration-300 ease-in-out mt-auto"> <!-- Added mt-auto -->
+                Añadir al Carrito
+              </button>
+            </div>
+          </div>
+        </ng-template>
+      </p-carousel>
+
+      <div *ngIf="!isLoading && productosDestacados.length === 0 && !errorMessage" class="text-center text-gray-600 text-lg py-10">
+        No hay productos destacados disponibles en este momento.
+      </div>
+    </div>
+  </section>

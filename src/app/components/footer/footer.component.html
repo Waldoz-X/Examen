@@ -1,0 +1,101 @@
+<footer class="prime-physique-footer">
+  <div class="footer-grid">
+    <div class="footer-column">
+      <h3>AYUDA</h3>
+      <ul>
+        <li><a routerLink="/faqs">FAQs</a></li>
+        <li><a routerLink="/returns-exchanges">Devoluciones y Cambios</a></li>
+        <li><a routerLink="/contact">Contacto</a></li>
+        <li><a routerLink="/terms-of-service">Términos de Servicio</a></li>
+        <li><a routerLink="/general-size-chart">Guía de Tallas General</a></li>
+        <li><a routerLink="/shipping-policy">Política de Envío</a></li>
+        <li><a routerLink="/privacy-policy">Política de Privacidad</a></li>
+        <li><a routerLink="/do-not-sell">No Vender Mi Información Personal</a></li>
+        <li><a routerLink="/gdpr">GDPR</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>COMPRA CON NOSOTROS</h3>
+      <ul>
+        <li><a routerLink="/search">Buscar</a></li>
+        <li><a routerLink="/all-products">Todos los Productos</a></li>
+        <li><a routerLink="/gift-card">Tarjeta de Regalo</a></li>
+        <li><a routerLink="/rewards">Recompensas</a></li>
+        <li><a routerLink="/shipping-protection">Protección de Envío</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>EXPLORA</h3>
+      <ul>
+        <li><a routerLink="/our-story">Nuestra Historia</a></li>
+        <li><a routerLink="/customer-reviews">Opiniones de Clientes</a></li>
+        <li><a routerLink="/careers">Carreras</a></li>
+        <li><a routerLink="/account">Mi Cuenta</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column newsletter-column">
+      <h3>ÚNETE A LA FAMILIA PRIME PHYSIQUE</h3>
+      <p>
+        Recibe instantáneamente actualizaciones, acceso a ofertas exclusivas,
+        lanzamientos de productos y más.
+      </p>
+      <div class="p-field">
+        <input
+          type="email"
+          pInputText
+          [(ngModel)]="newsletterEmail"
+          placeholder="Ingresa tu email aquí"
+          class="newsletter-input"
+        />
+        <button pButton type="button" label="SUSCRIBIRSE" (click)="subscribeToNewsletter()" class="subscribe-button"></button>
+      </div>
+      <div class="reviews-section">
+        <div class="stars">
+          <i class="pi pi-star-fill"></i>
+          <i class="pi pi-star-fill"></i>
+          <i class="pi pi-star-fill"></i>
+          <i class="pi pi-star-fill"></i>
+          <i class="pi pi-star-half"></i> </div>
+        <p>Más de 90,000+ Reviews</p>
+        <p class="powered-by">Powered by Loox</p> </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-info">
+      <h3>SOBRE LA TIENDA</h3>
+      <p>
+        Prime Physique es una marca de estilo de vida con sede en León, Gto.
+        Desde el inicio hasta el final, cada producto está diseñado pensando
+        en nuestros clientes y la calidad. Adoptamos un enfoque diferente a la
+        producción, nuestro objetivo no es fabricar productos en grandes
+        cantidades, sino más bien hacer productos únicos y especiales que
+        nuestros clientes puedan usar con orgullo. ¿Alguna pregunta?
+        <a href="tel:+528182068764">(818) 206-8764</a>.
+      </p>
+    </div>
+
+    <div class="social-icons">
+      <a href="https://www.instagram.com/youngla" target="_blank" class="p-button p-button-text p-button-plain"><i class="pi pi-instagram"></i></a>
+      <a href="https://www.tiktok.com/@youngla" target="_blank" class="p-button p-button-text p-button-plain"><i class="pi pi-tiktok"></i></a>
+    </div>
+
+    <div class="footer-credit">
+
+      <span>&copy; {{ currentYear }} - PRIME PHYSIQUE. Todos los derechos reservados.</span>
+
+      <div class="payment-icons">
+        <img src="assets/payment-methods/visa.svg" alt="Visa" title="Visa">
+        <img src="assets/payment-methods/mastercard.svg" alt="Mastercard" title="Mastercard">
+        <img src="assets/payment-methods/amex.svg" alt="American Express" title="American Express">
+        <img src="assets/payment-methods/paypal.svg" alt="PayPal" title="PayPal">
+        <img src="assets/payment-methods/applepay.svg" alt="Apple Pay" title="Apple Pay">
+        <img src="assets/payment-methods/googlepay.svg" alt="Google Pay" title="Google Pay">
+        <img src="assets/payment-methods/shopify-pay.svg" alt="pi-american_express" title="pi-american_express">
+      </div>
+    </div>
+  </div>
+</footer>
